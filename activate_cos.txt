@@ -1,0 +1,27 @@
+cd C:\Data\portfolio_kfc_data
+python -m venv venv
+
+.\venv\Scripts\Activate.ps1
+(venv) PS C:\Data\portfolio_kfc_data>
+
+
+
+
+
+
+
+
+
+		Commit sur GitHub
+
+# Ajoute tous les fichiers
+git add .
+
+# Vérifie
+git status
+
+# Commit
+git commit -m "feat: initial project structure with README and data dictionary"
+
+# Push
+git push origin main

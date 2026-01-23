@@ -1,0 +1,72 @@
+# %% [markdown]
+# # Exploration des données COS - Restauration Rapide
+# ## Analyse préliminaire des données synthétiques
+
+# %%
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime, timedelta
+
+# Configuration
+plt.style.use('seaborn-v0_8-darkgrid')
+sns.set_palette("husl")
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
+
+# %%
+# Génération de données synthétiques (exemple)
+def generate_synthetic_data(n_days=180, n_restaurants=10):
+    dates = pd.date_range(end=datetime.now(), periods=n_days)
+    restaurants = range(1, n_restaurants + 1)
+    product_families = [
+        "Poulet Frit", "Sandwichs", "Burger Poulet", "Wraps & Salades",
+        "Accompagnements", "Boissons", "Desserts", "Petits Déjeuners"
+    ]
+    
+    data = []
+    for date in dates:
+        for restaurant in restaurants:
+            for product in product_families:
+                # Logique de génération synthétique
+                base_cost = np.random.uniform(1.5, 8.0)
+                actual_cost = base_cost * np.random.uniform(0.9, 1.15)
+                
+                row = {
+                    'date': date,
+                    'restaurant_id': restaurant,
+                    'product_family': product,
+                    'theoretical_unit_cost': round(base_cost, 2),
+                    'actual_unit_cost': round(actual_cost, 2),
+                    'units_sold': np.random.randint(10, 100),
+                    'waste_kg': round(np.random.uniform(0, 5), 2),
+                    'qsp_score': round(np.random.uniform(0.7, 0.95), 2),
+                    'operational_anomaly': np.random.choice([True, False], p=[0.1, 0.9])
+                }
+                data.append(row)
+    
+    return pd.DataFrame(data)
+
+# %%
+# Génération et sauvegarde
+print("Génération des données synthétiques...")
+df = generate_synthetic_data()
+print(f"Shape: {df.shape}")
+print(f"Période: {df['date'].min()} to {df['date'].max()}")
+print(f"Restaurants: {df['restaurant_id'].nunique()}")
+print(f"Familles produits: {df['product_family'].nunique()}")
+
+# %%
+# Calcul des KPI
+df['revenue'] = df['theoretical_unit_cost'] * 1.8 * df['units_sold']  # Marge simplifiée
+df['theoretical_cos'] = (df['theoretical_unit_cost'] * df['units_sold']) / df['revenue']
+df['actual_cos'] = (df['actual_unit_cost'] * df['units_sold']) / df['revenue']
+df['cos_gap'] = df['actual_cos'] - df['theoretical_cos']
+df['gap_percentage'] = (df['cos_gap'] / df['theoretical_cos']) * 100
+
+# %%
+# Aperçu des données
+print("\n=== APERÇU DES DONNÉES ===")
+print(df.head())
+print("\n=== STATISTIQUES DES KPI ===")
+print(df[['theoretical_cos', 'actual_cos', 'cos_gap']].describe())
