@@ -1,0 +1,108 @@
+```markdown
+# 📊 Dictionnaire de Données - COS Synthétique
+
+## 📅 Vue d'ensemble
+- **Période** : 180 jours (6 mois)
+- **Fréquence** : Quotidienne
+- **Restaurants** : 10 (identifiés 1 à 10)
+- **Produits** : 8 familles principales + variations
+- **Enregistrements** : ~14,400 lignes
+
+## 🏪 Table : `transactions_daily`
+
+| Colonne | Type | Description | Valeurs exemple | Règles |
+|---------|------|-------------|-----------------|---------|
+| `transaction_id` | INT | Identifiant unique | 10001, 10002 | Auto-incrément |
+| `date` | DATE | Date de transaction | 2024-01-15 | Format YYYY-MM-DD |
+| `restaurant_id` | INT | ID restaurant | 1 à 10 | 10 restaurants fictifs |
+| `restaurant_name` | VARCHAR | Nom restaurant | "KFC Paris Louvre" | Déduit de l'ID |
+| `product_family` | VARCHAR | Famille produit | "Poulet Frit" | 8 familles principales |
+| `product_variant` | VARCHAR | Variante produit | "Bucket 10 pièces" | 3-5 variantes/famille |
+| `theoretical_unit_cost` | DECIMAL(5,2) | Coût théorique (recette) | 3.50 € | Aléatoire ±20% autour d'une base |
+| `actual_unit_cost` | DECIMAL(5,2) | Coût réel constaté | 3.85 € | = théorique × (1 + écart) |
+| `selling_price` | DECIMAL(5,2) | Prix de vente | 8.90 € | = coût × marge cible |
+| `units_sold` | INT | Quantités vendues | 45 | 10-100 par jour/restaurant |
+| `waste_kg` | DECIMAL(5,2) | Pertes en kilogrammes | 2.50 kg | 0-10 kg, dépend du produit |
+| `qsp_score` | DECIMAL(3,2) | Score qualité/sécurité/propreté | 0.88 | 0.5-1.0, influence les écarts |
+| `operational_anomaly` | BOOLEAN | Anomalie opérationnelle | TRUE/FALSE | 10% de probabilité |
+| `anomaly_type` | VARCHAR | Type d'anomalie | "surconsommation", "gaspillage" | Si anomalie = TRUE |
+| `shift_type` | VARCHAR | Service | "midi", "soir" | Distribution 60%/40% |
+| `weather_impact` | DECIMAL(3,2) | Impact météo | 1.15 | Multiplicateur de vente |
+
+## 🏢 Table : `restaurant_info`
+
+| Colonne | Type | Description |
+|---------|------|-------------|
+| `restaurant_id` | INT | ID unique |
+| `restaurant_name` | VARCHAR | Nom complet |
+| `city` | VARCHAR | Ville |
+| `opening_date` | DATE | Date d'ouverture |
+| `monthly_sales_target` | DECIMAL(10,2) | Objectif CA mensuel |
+| `manager_experience` | INT | Expérience manager (mois) |
+| `team_size` | INT | Effectif |
+| `equipment_age` | INT | Âge équipement (mois) |
+| `last_audit_score` | DECIMAL(3,2) | Dernier score audit |
+
+## 📈 KPI Calculés (dérivés)
+
+| KPI | Formule | Description | Cible |
+|-----|---------|-------------|-------|
+| `revenue` | `selling_price × units_sold` | Chiffre d'affaires | - |
+| `theoretical_cos` | `(theoretical_cost × units_sold) / revenue` | COS théorique (%) | 38-42% |
+| `actual_cos` | `(actual_cost × units_sold) / revenue` | COS réel (%) | - |
+| `cos_gap` | `actual_cos - theoretical_cos` | Écart absolu | < 2% |
+| `gap_percentage` | `cos_gap / theoretical_cos × 100` | Écart relatif (%) | < 5% |
+| `waste_cost` | `waste_kg × theoretical_unit_cost` | Coût du gaspillage | Minimiser |
+| `profit_margin` | `(revenue - actual_cost) / revenue × 100` | Marge bénéficiaire | > 15% |
+| `gap_severity` | `CASE WHEN gap_percentage > 10 THEN 'CRITIQUE' WHEN > 5 THEN 'ÉLEVÉ' ELSE 'NORMAL' END` | Niveau de sévérité | - |
+
+## 🔄 Logique de Génération Synthétique
+
+### **Écarts simulés réalistes :**
+1. **Variations saisonnières** :
+   - +15% ventes en weekend
+   - +20% pendant vacances scolaires
+   - -10% en période de grève/météo
+
+2. **Impact opérationnel** :
+   - **Managers expérimentés** : écart COS -1% à -3%
+   - **Équipement récent** : gaspillage -15%
+   - **Score QSP élevé** : conformité recette +10%
+
+3. **Anomalies types** :
+   - **Surconsommation** : +25% coût réel (portion trop généreuse)
+   - **Sous-cuisson** : gaspillage +30% (produit jeté)
+   - **Erreur inventaire** : -20% ventes (rupture)
+   - **Vol** : écart inexplicable 5-15%
+
+### **Distributions par famille produit :**
+
+| Famille Produit | Coût moyen | Écart typique | Gaspillage moyen | Sensibilité |
+|-----------------|------------|---------------|------------------|-------------|
+| Poulet Frit | 4.20 € | 8-12% | 1.8 kg | Élevée |
+| Sandwichs | 2.80 € | 5-8% | 0.5 kg | Moyenne |
+| Burgers | 3.10 € | 6-10% | 0.7 kg | Moyenne |
+| Accompagnements | 1.50 € | 3-5% | 2.5 kg | Faible |
+| Boissons | 0.80 € | 1-3% | 0.1 kg | Très faible |
+| Desserts | 2.20 € | 4-7% | 1.2 kg | Moyenne |
+
+## 🎯 Points de Contrôle Réalistes
+
+1. **Recette standard** : Pesée précise à ±5g
+2. **Température cuisson** : 175°C ±5°C
+3. **Temps de maintien** : < 30 minutes avant jet
+4. **Formation équipe** : 4h/mois minimum
+5. **Audit interne** : 1 fois/semaine
+
+## 📊 Métriques de Performance
+
+| Métrique | Bon | À améliorer | Critique |
+|----------|-----|-------------|----------|
+| Écart COS | < 2% | 2-5% | > 5% |
+| Gaspillage | < 3% CA | 3-6% CA | > 6% CA |
+| Score QSP | > 0.90 | 0.80-0.90 | < 0.80 |
+| Rotation stock | 5-7 jours | 7-10 jours | > 10 jours |
+
+---
+
+*Dernière mise à jour : Génération synthétique v1.0 - Données réalistes pour analyse COS*

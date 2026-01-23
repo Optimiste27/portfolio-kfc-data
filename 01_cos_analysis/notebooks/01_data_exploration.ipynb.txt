@@ -58,7 +58,21 @@ print(f"Familles produits: {df['product_family'].nunique()}")
 
 # %%
 # Calcul des KPI
-df['revenue'] = df['theoretical_unit_cost'] * 1.8 * df['units_sold']  # Marge simplifiée
+price_map = {
+    "Poulet Frit": 8.90,
+    "Sandwichs": 6.50,
+    "Burger Poulet": 7.20,
+    "Wraps & Salades": 6.80,
+    "Accompagnements": 3.50,
+    "Boissons": 2.90,
+    "Desserts": 3.90,
+    "Petits Déjeuners": 5.50
+}
+
+df['selling_price'] = df['product_family'].map(price_map)
+df['revenue'] = df['selling_price'] * df['units_sold']
+  # Marge simplifiée
+
 df['theoretical_cos'] = (df['theoretical_unit_cost'] * df['units_sold']) / df['revenue']
 df['actual_cos'] = (df['actual_unit_cost'] * df['units_sold']) / df['revenue']
 df['cos_gap'] = df['actual_cos'] - df['theoretical_cos']

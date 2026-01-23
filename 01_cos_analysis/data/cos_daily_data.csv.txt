@@ -1,0 +1,18 @@
+| Colonne                 | Description métier            |
+| ----------------------- | ----------------------------- |
+| `date`                  | Date d’activité               |
+| `restaurant_id`         | Identifiant restaurant fictif |
+| `city`                  | Ville                         |
+| `product_family`        | Famille produit               |
+| `selling_price`         | Prix de vente unitaire        |
+| `theoretical_unit_cost` | Coût recette standard         |
+| `actual_unit_cost`      | Coût réel constaté            |
+| `units_sold`            | Quantité vendue               |
+| `revenue`               | CA généré                     |
+| `waste_kg`              | Pertes connues                |
+| `qsp_score`             | Indicateur qualité            |
+| `operational_anomaly`   | Incident opérationnel         |
+| `theoretical_cos`       | COS cible                     |
+| `actual_cos`            | COS réel                      |
+| `cos_gap`               | Écart                         |
+| `gap_percentage`        | Écart en %                    |
