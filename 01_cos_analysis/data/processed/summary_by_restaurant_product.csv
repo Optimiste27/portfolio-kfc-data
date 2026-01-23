@@ -1,0 +1,81 @@
+restaurant_name,product_family,gap_percentage,revenue,waste_kg
+KFC Bordeaux Quinconces,Accompagnements,-1.79,26060.71,70.34
+KFC Bordeaux Quinconces,Boissons,-1.25,16676.03,10.6
+KFC Bordeaux Quinconces,Burger Poulet,-1.8,48845.53,37.14
+KFC Bordeaux Quinconces,Desserts,-1.84,36293.07,31.25
+KFC Bordeaux Quinconces,Petits Déjeuners,-1.48,39127.64,25.23
+KFC Bordeaux Quinconces,Poulet Frit,-1.0,60766.55,52.65
+KFC Bordeaux Quinconces,Sandwichs,-1.31,43250.56,27.38
+KFC Bordeaux Quinconces,Wraps & Salades,-1.84,47252.9,41.31
+KFC Lille Centre,Accompagnements,3.79,26141.28,71.39
+KFC Lille Centre,Boissons,3.05,17903.03,11.38
+KFC Lille Centre,Burger Poulet,3.81,49382.79,37.32
+KFC Lille Centre,Desserts,3.62,38924.1,33.91
+KFC Lille Centre,Petits Déjeuners,3.96,39682.45,26.23
+KFC Lille Centre,Poulet Frit,3.52,65020.71,57.06
+KFC Lille Centre,Sandwichs,3.53,44151.43,27.61
+KFC Lille Centre,Wraps & Salades,3.26,50216.13,44.08
+KFC Lyon Part-Dieu,Accompagnements,-1.77,26418.78,72.68
+KFC Lyon Part-Dieu,Boissons,-2.08,16754.03,10.58
+KFC Lyon Part-Dieu,Burger Poulet,-1.42,46462.89,35.24
+KFC Lyon Part-Dieu,Desserts,-1.21,35779.05,31.03
+KFC Lyon Part-Dieu,Petits Déjeuners,-1.67,37959.51,24.8
+KFC Lyon Part-Dieu,Poulet Frit,-1.71,59125.73,51.45
+KFC Lyon Part-Dieu,Sandwichs,-1.94,44264.09,27.98
+KFC Lyon Part-Dieu,Wraps & Salades,-2.06,48806.18,42.83
+KFC Marseille Vieux Port,Accompagnements,3.88,27415.91,75.09
+KFC Marseille Vieux Port,Boissons,3.62,17360.12,11.02
+KFC Marseille Vieux Port,Burger Poulet,3.33,46962.16,35.5
+KFC Marseille Vieux Port,Desserts,3.58,39252.41,34.44
+KFC Marseille Vieux Port,Petits Déjeuners,3.69,38527.22,25.25
+KFC Marseille Vieux Port,Poulet Frit,3.9,63221.65,54.78
+KFC Marseille Vieux Port,Sandwichs,3.43,48766.85,30.68
+KFC Marseille Vieux Port,Wraps & Salades,3.17,50150.01,44.1
+KFC Nantes Erdre,Accompagnements,3.68,27552.46,76.01
+KFC Nantes Erdre,Boissons,3.28,17225.1,10.99
+KFC Nantes Erdre,Burger Poulet,3.55,50029.24,37.77
+KFC Nantes Erdre,Desserts,4.0,38367.71,33.67
+KFC Nantes Erdre,Petits Déjeuners,4.28,39178.37,25.51
+KFC Nantes Erdre,Poulet Frit,4.11,64124.46,55.49
+KFC Nantes Erdre,Sandwichs,3.81,48974.82,31.01
+KFC Nantes Erdre,Wraps & Salades,3.59,52363.93,46.02
+KFC Nice Promenade,Accompagnements,-1.89,26637.35,72.64
+KFC Nice Promenade,Boissons,-1.75,16195.64,10.33
+KFC Nice Promenade,Burger Poulet,-1.65,43768.34,33.2
+KFC Nice Promenade,Desserts,-1.78,34537.39,29.64
+KFC Nice Promenade,Petits Déjeuners,-1.63,38519.83,24.9
+KFC Nice Promenade,Poulet Frit,-1.55,58726.69,51.18
+KFC Nice Promenade,Sandwichs,-1.56,44408.88,28.19
+KFC Nice Promenade,Wraps & Salades,-1.68,48015.93,42.1
+KFC Paris Louvre,Accompagnements,3.04,27370.57,74.67
+KFC Paris Louvre,Boissons,3.29,17381.77,11.0
+KFC Paris Louvre,Burger Poulet,2.94,47601.31,36.27
+KFC Paris Louvre,Desserts,3.04,39367.68,34.11
+KFC Paris Louvre,Petits Déjeuners,3.33,40206.09,26.21
+KFC Paris Louvre,Poulet Frit,2.9,62478.06,53.5
+KFC Paris Louvre,Sandwichs,3.52,44776.2,28.3
+KFC Paris Louvre,Wraps & Salades,3.52,49576.24,43.63
+KFC Rennes Centre,Accompagnements,3.6,27505.25,73.81
+KFC Rennes Centre,Boissons,3.59,16873.69,10.74
+KFC Rennes Centre,Burger Poulet,3.38,47025.54,35.08
+KFC Rennes Centre,Desserts,3.63,36557.8,31.72
+KFC Rennes Centre,Petits Déjeuners,3.49,37207.26,24.1
+KFC Rennes Centre,Poulet Frit,3.53,65919.53,57.16
+KFC Rennes Centre,Sandwichs,3.46,45847.77,28.92
+KFC Rennes Centre,Wraps & Salades,3.3,47184.44,41.55
+KFC Strasbourg Grande Île,Accompagnements,-1.73,25614.71,69.56
+KFC Strasbourg Grande Île,Boissons,-1.47,16745.67,10.77
+KFC Strasbourg Grande Île,Burger Poulet,-2.17,48403.21,36.51
+KFC Strasbourg Grande Île,Desserts,-1.52,35161.62,30.79
+KFC Strasbourg Grande Île,Petits Déjeuners,-1.57,40195.0,26.2
+KFC Strasbourg Grande Île,Poulet Frit,-1.35,62637.48,54.14
+KFC Strasbourg Grande Île,Sandwichs,-1.15,41853.69,26.5
+KFC Strasbourg Grande Île,Wraps & Salades,-1.83,48125.24,42.24
+KFC Toulouse Capitole,Accompagnements,-1.04,24930.65,67.5
+KFC Toulouse Capitole,Boissons,-1.9,16062.09,10.12
+KFC Toulouse Capitole,Burger Poulet,-1.68,46821.09,35.61
+KFC Toulouse Capitole,Desserts,-2.1,36460.32,31.67
+KFC Toulouse Capitole,Petits Déjeuners,-1.0,37438.14,23.94
+KFC Toulouse Capitole,Poulet Frit,-1.29,59707.61,51.73
+KFC Toulouse Capitole,Sandwichs,-0.98,42865.55,27.23
+KFC Toulouse Capitole,Wraps & Salades,-1.54,48695.53,42.56

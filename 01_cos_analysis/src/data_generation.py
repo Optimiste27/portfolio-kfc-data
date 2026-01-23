@@ -35,10 +35,10 @@ class COSDataGenerator:
         self.product_families = {
             "Poulet Frit": {
                 "base_cost": 4.20,
-                "margin_multiplier": 2.1,  # Prix de vente = coût × ce multiplicateur
-                "waste_factor": 0.15,  # % de gaspillage attendu
-                "cost_variability": 0.12,  # Variabilité naturelle du coût
-                "sensitivity": "high"  # Sensibilité aux écarts
+                "margin_multiplier": 2.1,
+                "waste_factor": 0.15,
+                "cost_variability": 0.12,
+                "sensitivity": "high"
             },
             "Sandwichs": {
                 "base_cost": 2.80,
@@ -64,7 +64,7 @@ class COSDataGenerator:
             "Accompagnements": {
                 "base_cost": 1.50,
                 "margin_multiplier": 2.5,
-                "waste_factor": 0.20,  # Haut gaspillage pour frites
+                "waste_factor": 0.20,
                 "cost_variability": 0.05,
                 "sensitivity": "low"
             },
@@ -105,14 +105,14 @@ class COSDataGenerator:
         
         # Types d'anomalies opérationnelles
         self.anomaly_types = [
-            "surconsommation",  # Portion trop généreuse
-            "sous_cuisson",     # Produit jeté pour qualité
-            "surcuisson",       # Produit sec/brûlé
-            "vol",              # Différence inventaire
-            "erreur_commande",  # Mauvais produit préparé
-            "panne_equipement", # Friteuse hors température
-            "rupture_stock",    # Produit non disponible
-            "formation_manquante" # Non respect recette
+            "surconsommation",
+            "sous_cuisson",
+            "surcuisson",
+            "vol",
+            "erreur_commande",
+            "panne_equipement",
+            "rupture_stock",
+            "formation_manquante"
         ]
 
     def _calculate_seasonal_factor(self, date):
@@ -121,13 +121,13 @@ class COSDataGenerator:
         month = date.month
         
         # Weekend = plus de ventes
-        if day_of_week >= 5:  # Samedi(5) ou Dimanche(6)
+        if day_of_week >= 5:
             sales_factor = np.random.uniform(1.15, 1.35)
         else:
             sales_factor = np.random.uniform(0.9, 1.1)
         
         # Vacances scolaires (simplifié)
-        if month in [7, 8]:  Juillet-Août
+        if month in [7, 8]:  # Juillet-Août
             sales_factor *= np.random.uniform(1.1, 1.25)
         elif month in [12]:  # Décembre
             sales_factor *= np.random.uniform(1.05, 1.15)
@@ -136,18 +136,16 @@ class COSDataGenerator:
 
     def _get_restaurant_performance_factor(self, restaurant_id):
         """Facteur de performance basé sur l'ID restaurant (simulé)"""
-        # Les restaurants pairs sont meilleurs (simulation)
         if restaurant_id % 2 == 0:
-            return np.random.uniform(0.95, 1.0)  # Meilleure performance
+            return np.random.uniform(0.95, 1.0)
         else:
-            return np.random.uniform(1.0, 1.05)  # Performance moyenne
+            return np.random.uniform(1.0, 1.05)
 
     def _simulate_operational_anomaly(self):
         """Simule une anomalie opérationnelle réaliste"""
-        if np.random.random() < 0.1:  # 10% de chance d'anomalie
+        if np.random.random() < 0.1:
             anomaly_type = random.choice(self.anomaly_types)
             
-            # Impact selon le type d'anomalie
             impacts = {
                 "surconsommation": {"cost_multiplier": 1.25, "waste_multiplier": 1.0},
                 "sous_cuisson": {"cost_multiplier": 1.0, "waste_multiplier": 1.3},
@@ -167,17 +165,15 @@ class COSDataGenerator:
         """Calcule un score QSP réaliste"""
         base_score = np.random.uniform(0.85, 0.95)
         
-        # Impact restaurant
-        if restaurant_id in [2, 4, 8]:  # Restaurants mieux notés
+        if restaurant_id in [2, 4, 8]:
             base_score += 0.03
-        elif restaurant_id in [3, 7]:  # Restaurants avec défis
+        elif restaurant_id in [3, 7]:
             base_score -= 0.02
         
-        # Impact anomalie
         if has_anomaly:
             base_score -= np.random.uniform(0.05, 0.15)
         
-        return max(0.5, min(1.0, base_score))  # Borné entre 0.5 et 1.0
+        return max(0.5, min(1.0, base_score))
 
     def generate_daily_transactions(self, start_date="2024-01-01", n_days=180):
         """Génère les transactions quotidiennes"""
@@ -193,46 +189,33 @@ class COSDataGenerator:
         
         for date in dates:
             for restaurant_id in self.restaurants.keys():
-                # Facteurs du jour
                 seasonal_factor = self._calculate_seasonal_factor(date)
                 perf_factor = self._get_restaurant_performance_factor(restaurant_id)
                 
                 for product_family, product_info in self.product_families.items():
-                    # Simulation d'anomalie
                     has_anomaly, anomaly_type, anomaly_impact = self._simulate_operational_anomaly()
                     
-                    # Coût théorique avec variabilité naturelle
                     base_cost = product_info["base_cost"]
                     cost_variability = product_info["cost_variability"]
                     
-                    theoretical_cost = np.random.normal(
-                        base_cost, 
-                        base_cost * cost_variability * 0.5
-                    )
+                    theoretical_cost = np.random.normal(base_cost, base_cost * cost_variability * 0.5)
                     theoretical_cost = max(base_cost * 0.8, min(theoretical_cost, base_cost * 1.2))
                     
-                    # Coût réel avec impact des anomalies
                     actual_cost = theoretical_cost * anomaly_impact["cost_multiplier"]
-                    actual_cost *= perf_factor  # Impact performance restaurant
+                    actual_cost *= perf_factor
                     
-                    # Ventes avec facteurs saisonniers
                     base_units = np.random.randint(15, 60)
                     units_sold = int(base_units * seasonal_factor * perf_factor)
                     
-                    # Gaspillage
-                    base_waste = product_info["waste_factor"] * units_sold * 0.05  # 5% des unités en kg
+                    base_waste = product_info["waste_factor"] * units_sold * 0.05
                     waste_kg = base_waste * anomaly_impact["waste_multiplier"]
                     
-                    # Prix de vente
                     selling_price = theoretical_cost * product_info["margin_multiplier"]
                     
-                    # Score QSP
                     qsp_score = self._calculate_qsp_score(restaurant_id, has_anomaly)
                     
-                    # Variante produit
                     variant = random.choice(self.product_variants[product_family])
                     
-                    # Service (shift)
                     shift_type = random.choices(["midi", "soir"], weights=[0.6, 0.4])[0]
                     
                     transaction_id += 1
@@ -258,7 +241,6 @@ class COSDataGenerator:
         
         df = pd.DataFrame(data)
         
-        # Calcul des KPIs dérivés
         df["revenue"] = df["selling_price"] * df["units_sold"]
         df["theoretical_cos"] = (df["theoretical_unit_cost"] * df["units_sold"]) / df["revenue"]
         df["actual_cos"] = (df["actual_unit_cost"] * df["units_sold"]) / df["revenue"]
@@ -266,7 +248,6 @@ class COSDataGenerator:
         df["gap_percentage"] = (df["cos_gap"] / df["theoretical_cos"]) * 100
         df["waste_cost"] = df["waste_kg"] * df["theoretical_unit_cost"]
         
-        # Sévérité de l'écart
         conditions = [
             df["gap_percentage"] > 10,
             df["gap_percentage"] > 5,
@@ -282,15 +263,13 @@ class COSDataGenerator:
         data = []
         
         for restaurant_id, info in self.restaurants.items():
-            # Expérience du manager (corrélée à la performance)
-            if restaurant_id % 2 == 0:  # Restaurants pairs = managers expérimentés
-                experience = np.random.randint(24, 48)  # 2-4 ans
+            if restaurant_id % 2 == 0:
+                experience = np.random.randint(24, 48)
             else:
-                experience = np.random.randint(6, 24)   # 6 mois-2 ans
+                experience = np.random.randint(6, 24)
             
-            # Âge équipement
             open_date = datetime.strptime(info["open_date"], "%Y-%m-%d")
-            equipment_age = (datetime.now() - open_date).days // 30  # En mois
+            equipment_age = (datetime.now() - open_date).days // 30
             
             data.append({
                 "restaurant_id": restaurant_id,
@@ -308,21 +287,18 @@ class COSDataGenerator:
 
     def save_data(self, output_dir="../data"):
         """Génère et sauvegarde toutes les données"""
-        # Crée les répertoires
         raw_dir = os.path.join(output_dir, "raw")
         processed_dir = os.path.join(output_dir, "processed")
         
         for directory in [raw_dir, processed_dir]:
             os.makedirs(directory, exist_ok=True)
         
-        # Génère les données
         print("Génération des transactions...")
         transactions_df = self.generate_daily_transactions()
         
         print("Génération des infos restaurants...")
         restaurant_df = self.generate_restaurant_info()
         
-        # Sauvegarde en CSV
         transactions_path = os.path.join(raw_dir, "transactions_daily.csv")
         restaurant_path = os.path.join(raw_dir, "restaurant_info.csv")
         
@@ -349,17 +325,14 @@ def main():
     
     generator = COSDataGenerator(seed=42)
     
-    # Génère et sauvegarde les données
     transactions_df, restaurant_df = generator.save_data()
     
-    # Aperçu des données
     print("\n📋 APERÇU DES DONNÉES:")
     print(transactions_df.head())
     
     print("\n📊 DISTRIBUTION DES ÉCARTS:")
     print(transactions_df["gap_severity"].value_counts())
     
-    # Statistiques par restaurant
     print("\n🏪 PERFORMANCE PAR RESTAURANT (TOP 3 écarts):")
     restaurant_stats = transactions_df.groupby("restaurant_name").agg({
         "gap_percentage": "mean",

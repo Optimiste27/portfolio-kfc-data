@@ -1,0 +1,11 @@
+restaurant_id,restaurant_name,city,opening_date,monthly_sales_target,manager_experience,team_size,equipment_age,last_audit_score
+1,KFC Paris Louvre,Paris,2020-03-15,101848.5071576496,13,27,71,0.95
+2,KFC Lyon Part-Dieu,Lyon,2019-08-22,119950.78083999414,47,29,78,0.81
+3,KFC Marseille Vieux Port,Marseille,2021-01-10,116333.00203766066,17,17,61,0.97
+4,KFC Toulouse Capitole,Toulouse,2018-11-30,126995.35599345407,25,24,87,0.85
+5,KFC Lille Centre,Lille,2022-05-18,118806.21542973937,6,28,44,0.82
+6,KFC Bordeaux Quinconces,Bordeaux,2019-04-12,95574.79103742787,43,15,82,0.89
+7,KFC Nantes Erdre,Nantes,2020-09-05,88941.9059928772,12,18,65,0.84
+8,KFC Strasbourg Grande Île,Strasbourg,2021-07-20,145671.3429128991,43,19,54,0.92
+9,KFC Rennes Centre,Rennes,2022-02-28,93589.66886289799,8,27,47,0.84
+10,KFC Nice Promenade,Nice,2018-06-14,99829.14380928835,42,24,92,0.83
