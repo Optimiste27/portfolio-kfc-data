@@ -1,16 +1,31 @@
-# Portfolio Data – Performance Opérationnelle
+# 📊 Portfolio Data Science - KFC COS Analysis
 
-Ce dépôt présente des projets data orientés **pilotage de la performance, contrôle des coûts et optimisation opérationnelle**, inspirés de problématiques réelles en restauration rapide (QSR).
+## 🎯 Overview
+This portfolio showcases a complete data science project analyzing Cost of Sales (COS) deviations in fast-food restaurants using synthetic data.
 
-## Objectif
-Construire un portfolio professionnel démontrant :
-- Une compréhension business terrain
-- Une capacité à structurer des analyses data de bout en bout
-- L’utilisation d’outils data modernes (Python, DataViz, Dashboards)
+## 📁 Projects
 
-## Projets
-1. **Analyse et optimisation du Cost of Sales (COS)**
-2. Prévision des ventes et optimisation des stocks
-3. Détection d’anomalies opérationnelles
+### [🏪 01_cos_analysis](/01_cos_analysis/)
+**Cost of Sales Analysis - Fast Food Restaurant Chain**
 
-> Toutes les données utilisées sont **synthétiques** et ne proviennent pas de systèmes réels.
+Complete pipeline for analyzing operational cost deviations:
+- **Synthetic Data Generation**: Realistic transaction data with 4.0% average gap
+- **Statistical Analysis**: Jupyter notebook with 7+ visualizations
+- **Interactive Dashboard**: Streamlit app with real-time KPIs and filters
+- **Business Insights**: Identified 48k€ potential savings, problem restaurants
+
+**Key Technologies**: Python, Pandas, Streamlit, Matplotlib, Seaborn
+
+## 🚀 Quick Start
+```bash
+# Clone repository
+git clone https://github.com/Optimiste27/portfolio-kfc-data.git
+
+# Navigate to project
+cd portfolio-kfc-data/01_cos_analysis
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch dashboard
+streamlit run dashboard/app.py
