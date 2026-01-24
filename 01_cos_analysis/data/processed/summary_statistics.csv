@@ -1,0 +1,35 @@
+,,gap_percentage,gap_percentage,gap_percentage,waste_percentage
+,,mean,std,count,mean
+restaurant_profile,product_family,,,,
+excellent,Accompagnements,-25.712,7.609,540,0.38
+excellent,Boissons,-42.698,5.976,540,0.064
+excellent,Burger Poulet,-33.202,6.982,540,0.209
+excellent,Desserts,-37.069,6.342,540,0.189
+excellent,Petits Déjeuners,-39.042,6.318,540,0.154
+excellent,Poulet Frit,-29.445,6.867,540,0.332
+excellent,Sandwichs,-35.342,6.108,540,0.166
+excellent,Wraps & Salades,-31.135,7.242,540,0.29
+moyen,Accompagnements,24.181,14.94,360,0.641
+moyen,Boissons,-4.772,10.529,360,0.107
+moyen,Burger Poulet,11.884,13.32,360,0.359
+moyen,Desserts,5.337,12.105,360,0.323
+moyen,Petits Déjeuners,1.716,10.862,360,0.263
+moyen,Poulet Frit,17.883,14.287,360,0.551
+moyen,Sandwichs,9.933,13.419,360,0.287
+moyen,Wraps & Salades,14.341,13.795,360,0.468
+performant,Accompagnements,-1.372,10.413,360,0.518
+performant,Boissons,-23.995,8.056,360,0.085
+performant,Burger Poulet,-11.426,9.667,360,0.283
+performant,Desserts,-16.226,9.241,360,0.258
+performant,Petits Déjeuners,-19.179,8.993,360,0.205
+performant,Poulet Frit,-7.164,9.303,360,0.438
+performant,Sandwichs,-14.19,9.522,360,0.22
+performant,Wraps & Salades,-8.475,10.816,360,0.381
+problematique,Accompagnements,89.467,23.364,540,1.007
+problematique,Boissons,45.908,18.488,540,0.166
+problematique,Burger Poulet,69.024,20.012,540,0.535
+problematique,Desserts,60.577,19.963,540,0.492
+problematique,Petits Déjeuners,55.314,19.17,540,0.404
+problematique,Poulet Frit,79.528,22.21,540,0.848
+problematique,Sandwichs,64.937,19.658,540,0.428
+problematique,Wraps & Salades,74.767,20.994,540,0.745

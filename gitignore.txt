@@ -1,0 +1,53 @@
+# Données brutes (trop volumineuses pour GitHub)
+01_cos_analysis/data/raw/
+01_cos_analysis/data/processed/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.log
+
+# Fichiers systèmes
+.DS_Store
+Thumbs.db
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Notebooks - fichiers de checkpoint
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.jupyter/
+
+# Streamlit
+.streamlit/
