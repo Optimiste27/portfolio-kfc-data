@@ -1,0 +1,11 @@
+restaurant_id,restaurant_name,performance_category,target_gap_percentage,manager_experience,team_size,last_audit_score,monthly_target
+1,KFC Paris Louvre,Bon,3.0,59,20,0.89,145132.53494822758
+2,KFC Lyon Part-Dieu,Excellent,2.0,32,23,0.91,126150.34712116669
+3,KFC Marseille Vieux Port,À améliorer,8.0,15,23,0.81,105963.87351344999
+4,KFC Toulouse Capitole,Excellent,2.5,42,23,0.92,101760.07280951174
+5,KFC Lille Centre,Moyen,4.5,53,28,0.8,133983.61850504318
+6,KFC Bordeaux Quinconces,Bon,3.5,59,21,0.91,128020.60175391295
+7,KFC Nantes Erdre,Moyen,5.0,28,24,0.8,140625.60597640483
+8,KFC Strasbourg Grande Île,Excellent,2.2,33,22,0.94,125003.79502481392
+9,KFC Rennes Centre,Moyen,5.5,58,21,0.88,124647.90502448211
+10,KFC Nice Promenade,Bon,3.8,46,26,0.9,132988.83382208395

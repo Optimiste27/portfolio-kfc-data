@@ -6,6 +6,13 @@ python -m venv venv
 
 
 
+Chemin app :    "../data/raw/transactions_final_20260124_1112.csv"
+
+
+# Vérifier que tout est prêt
+cd C:\Data\portfolio_kfc_data
+python 01_cos_analysis/src/data_generation.py  # Regénérer données
+streamlit run 01_cos_analysis/dashboard/app.py  # Tester dashboard
 
 
 
@@ -14,14 +21,37 @@ python -m venv venv
 
 		Commit sur GitHub
 
+cd C:\Data\portfolio_kfc_data
+
 # Ajoute tous les fichiers
 git add .
 
 # Vérifie
 git status
 
-# Commit
-git commit -m "feat: initial project structure with README and data dictionary"
+# Commit avec un message structuré
+git commit -m "feat: complete COS analysis project
 
-# Push
+- Add realistic data generation with 4.0% average gap
+- Create comprehensive Jupyter notebook with 7 visualizations
+- Develop interactive Streamlit dashboard with filters and KPIs
+- Identify key business insights: 48k€ potential savings
+- Document project structure and data dictionary
+- Fix path issues and optimize data generation parameters
+
+This project demonstrates end-to-end data analysis pipeline
+from synthetic data generation to operational dashboard."
+
+
+# Push vers la branche main
 git push origin main
+
+
+
+# Si erreur de conflit (première fois peut-être)
+git pull origin main --rebase
+git push origin main
+
+
+
+
