@@ -11,8 +11,8 @@ Chemin app :    "../data/raw/transactions_final_20260124_1112.csv"
 
 # Vérifier que tout est prêt
 cd C:\Data\portfolio_kfc_data
-python 01_cos_analysis/src/data_generation.py  # Regénérer données
-streamlit run 01_cos_analysis/dashboard/app.py  # Tester dashboard
+python (src) data_generation.py  # Regénérer données
+streamlit run app.py  # Tester dashboard
 
 
 
@@ -55,3 +55,7 @@ git push origin main
 
 
 
+
+1️⃣ Arborescence complète du projet
+
+Depuis portfolio_kfc_data : "tree /F"
