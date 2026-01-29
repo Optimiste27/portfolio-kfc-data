@@ -1,0 +1,58 @@
+======================================================================
+📋 RAPPORT DATASET ML - SANS DATA LEAKAGE
+======================================================================
+📅 Généré le: 2026-01-29 13:39:18
+
+📊 STATISTIQUES GÉNÉRALES
+----------------------------------------
+• Échantillons totaux: 14,100
+• Features: 64
+• Cible: gap_percentage
+• Moyenne gap: 4.00%
+• Écart-type gap: 1.79%
+
+🔧 FEATURES CRÉÉES
+----------------------------------------
+• Temporelles: 6 features
+• Moyennes mobiles: 12 features
+• Lag features: 15 features
+• Prix/Coûts: 15 features
+• Régions: 10 features
+• Catégories: 5 features
+• Anomalies: 3 features
+• QSP: 7 features
+
+🚫 FEATURES EXCLUES (anti-data leakage)
+----------------------------------------
+• date
+• restaurant_name
+• product_family_name
+• region
+• product_category
+• gap_severity
+• theoretical_unit_cost
+• actual_unit_cost
+• waste_kg
+• revenue
+
+🔝 TOP 5 FEATURES PAR CORRÉLATION
+----------------------------------------
+1. cost_variance_pct: +1.000 (positive)
+2. anomaly_count_30d: +0.754 (positive)
+3. anomaly_count_7d: +0.753 (positive)
+4. operational_anomaly: +0.748 (positive)
+5. region_Marseille: +0.745 (positive)
+
+✅ VALIDATION RAPIDE
+----------------------------------------
+• R² sur test: 0.995
+• RMSE: 0.067%
+• ⚠️  ATTENTION: R² trop élevé, vérifier data leakage
+
+💡 RECOMMANDATIONS
+----------------------------------------
+1. Ce dataset est conçu SANS data leakage
+2. Utiliser TimeSeriesSplit pour validation temporelle
+3. Tester Random Forest et Gradient Boosting
+4. Vérifier l'importance des features après entraînement
+5. Si R² > 0.9, revérifier les features pour data leakage

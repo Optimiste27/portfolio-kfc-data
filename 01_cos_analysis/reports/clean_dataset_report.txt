@@ -1,0 +1,27 @@
+============================================================
+📋 DATASET ML PROPRE - SANS DATA LEAKAGE
+============================================================
+
+📅 Date: 2026-01-29 13:02:10
+📊 Taille: 14329 échantillons
+🎯 Variable cible: gap_percentage
+   • Moyenne: 4.00%
+   • Std: 1.79%
+
+🔧 Features créées:
+  • Temporelles (lag/rolling): 18
+  • Statistiques cumulatives: 2
+  • One-hot encodées: 15
+
+🚫 Features exclues (data leakage):
+  • cost_variance_pct
+  • profit_margin
+  • gap_to_target
+  • interaction_gap_percentage
+  • rest_avg_gap
+  • prod_avg_gap
+
+💡 RECOMMANDATIONS:
+  1. Ce dataset est prêt pour un entraînement ML réaliste
+  2. Les modèles ne pourront pas 'tricher'
+  3. La précision sera plus réaliste (< R²=0.9 probablement)

@@ -1,0 +1,44 @@
+============================================================
+📋 RAPPORT D'ANALYSE ML - PRÉDICTION ÉCARTS COS
+============================================================
+
+📅 Date d'analyse: 2026-01-29 11:59:38
+📊 Taille dataset: 14,400 observations
+🎯 Variable cible: gap_percentage
+
+🔍 QUALITÉ DES DONNÉES:
+✅ Aucune valeur manquante détectée
+
+💡 INSIGHTS POUR ML:
+
+1. Variables les plus corrélées avec gap_percentage:
+   • operational_anomaly      : 0.748
+   • waste_kg                 : 0.717
+   • actual_unit_cost         : 0.101
+   • restaurant_id            : 0.089
+   • product_target_gap       : 0.066
+
+2. Recommandations de Feature Engineering:
+   • Encodage one-hot: restaurant_name, product_category
+   • Variables temporelles: jour_semaine, weekend, saison
+   • Features lag: gap_percentage des jours précédents
+   • Features rolling: moyenne mobile sur 7 jours
+   • Interaction features: restaurant × produit
+
+3. Stratégie de Modélisation Recommandée:
+   • Problème: Régression (prédiction de pourcentage)
+   • Métrique principale: RMSE (Root Mean Squared Error)
+   • Métriques secondaires: MAE, R²
+   • Validation: Time Series Split (garder ordre temporel)
+   • Modèles à tester:
+     1. Random Forest Regressor (baseline)
+     2. Gradient Boosting (XGBoost/LightGBM)
+     3. Time Series (LSTM/Prophet si pattern temporel fort)
+
+4. Étapes de Préparation des Données:
+   [ ] 1. Nettoyage valeurs aberrantes (outliers)
+   [ ] 2. Feature engineering
+   [ ] 3. Encodage variables catégorielles
+   [ ] 4. Normalisation/standardisation
+   [ ] 5. Split temporel (train/test)
+   [ ] 6. Création features lag pour time series

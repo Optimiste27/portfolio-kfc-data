@@ -1,0 +1,52 @@
+{
+  "model_name": "Logistic Regression",
+  "model_path": "../models/cos_risk_classifier.pkl",
+  "threshold": 5.0,
+  "metrics": {
+    "f1": 0.29383490073145246,
+    "accuracy": 0.7969903463940943,
+    "precision": 0.3333333333333333,
+    "recall": 0.2627055306427504
+  },
+  "features": [
+    "region_Paris",
+    "region_Lyon",
+    "region_Marseille",
+    "region_Toulouse",
+    "region_Lille",
+    "region_Bordeaux",
+    "region_Nantes",
+    "region_Strasbourg",
+    "region_Rennes",
+    "region_Nice",
+    "qsp_score",
+    "qsp_trend_14d",
+    "units_sold",
+    "units_trend_7d",
+    "rest_units_ma_14",
+    "rest_units_ma_30",
+    "selling_price",
+    "price_norm_by_category",
+    "day_of_week",
+    "is_weekend",
+    "month"
+  ],
+  "last_trained": "2026-01-29 23:58:55",
+  "dashboard_widgets": [
+    {
+      "name": "risk_map",
+      "type": "map",
+      "data_source": "model_predictions"
+    },
+    {
+      "name": "risk_trends",
+      "type": "line_chart",
+      "data_source": "historical_predictions"
+    },
+    {
+      "name": "top_risk_factors",
+      "type": "bar_chart",
+      "data_source": "feature_importance"
+    }
+  ]
+}

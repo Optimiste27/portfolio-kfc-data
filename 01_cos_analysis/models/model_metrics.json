@@ -1,0 +1,7 @@
+{
+  "best_model": "Linear Regression",
+  "test_rmse": 4.5836637687498394e-15,
+  "test_mae": 3.623328845934794e-15,
+  "test_r2": 1.0,
+  "timestamp": "2026-01-29 12:27:54"
+}

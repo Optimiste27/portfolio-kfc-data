@@ -1,0 +1,90 @@
+
+======================================================================
+📋 RAPPORT CLASSIFIEUR DE RISQUE COS - KFC
+======================================================================
+
+📅 Date: 2026-01-29 23:58:55
+🏆 Modèle: Logistic Regression
+📁 Fichier: ../models/cos_risk_classifier.pkl
+🎯 Objectif: Détecter les risques de gap COS > 5%
+
+📊 PERFORMANCE DU MODÈLE
+────────────────────────────────────────
+• F1-Score: 0.294
+• Accuracy: 0.797
+• Precision: 0.333
+• Recall: 0.263
+• AUC-ROC: 0.681
+
+📈 INTERPRÉTATION BUSINESS
+────────────────────────────────────────
+• Le modèle détecte 26.3% des risques réels
+• Quand il prédit un risque, il a raison 33.3% du temps
+• Performance globale: 29.4% (F1-Score)
+
+🎯 UTILISATION OPÉRATIONNELLE
+────────────────────────────────────────
+1. ALERTE PRÉVENTIVE:
+   • Exécuter quotidiennement sur les données du jour J-1
+   • Alerter les managers régionaux des restaurants à risque
+   • Planifier des audits ciblés
+
+2. INTERPRÉTATION DES SCORES:
+   • Score > 0.7: Risque élevé - Action immédiate requise
+   • Score 0.4-0.7: Risque modéré - Surveillance renforcée
+   • Score < 0.4: Risque faible - Monitoring standard
+
+3. ACTIONS RECOMMANDÉES:
+   • Vérifier les anomalies opérationnelles récentes
+   • Contrôler les niveaux de stock et les déchets
+   • Former le personnel sur les procédures
+   • Optimiser les commandes de matières premières
+
+🔧 DÉPLOIEMENT DASHBOARD
+────────────────────────────────────────
+1. Chargement:
+   import pickle
+   model_data = pickle.load(open('../models/cos_risk_classifier.pkl', 'rb'))
+   classifier = model_data['model']
+
+2. Prédiction:
+   risk_score = classifier.predict_proba(features)[:, 1]
+   is_high_risk = classifier.predict(features)
+
+3. Visualisation:
+   • Carte des restaurants à risque
+   • Tendances des risques par région
+   • Facteurs contributifs principaux
+
+📊 STATISTIQUES DES DONNÉES
+────────────────────────────────────────
+• Échantillons totaux: 14,090
+• Risques détectés: 3,554 (25.2%)
+• Features utilisées: 21
+• Période: Jan 2024 - Jun 2024
+
+🔍 FEATURES CLÉS
+────────────────────────────────────────
+Les principales features utilisées pour la prédiction:
+• Région du restaurant
+• Anomalies opérationnelles récentes
+• Scores de qualité (QSP)
+• Volumes de ventes
+• Tendances temporelles
+
+🚀 RECOMMANDATIONS
+────────────────────────────────────────
+• Recalibrer le modèle tous les trimestres
+• Ajouter de nouvelles données saisonnières
+• Intégrer les feedbacks des managers
+• Surveiller la dérive des performances
+
+📞 SUPPORT
+────────────────────────────────────────
+• Questions techniques: Équipe Data Science
+• Interprétation métier: Directeurs Opérationnels
+• Alertes urgentes: Managers Régionaux
+
+======================================================================
+✅ CLASSIFIEUR PRÊT POUR LA PRODUCTION
+======================================================================

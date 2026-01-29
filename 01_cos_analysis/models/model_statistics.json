@@ -1,0 +1,73 @@
+{
+  "model_performance": {
+    "accuracy": 0.9470073338064822,
+    "precision": 0.7210599721059973,
+    "recall": 0.955637707948244,
+    "f1": 0.821939586645469,
+    "auc": 0.9947671310639348,
+    "confusion_matrix": [
+      [
+        3486,
+        200
+      ],
+      [
+        24,
+        517
+      ]
+    ]
+  },
+  "data_statistics": {
+    "total_samples": 14090,
+    "positive_samples": 1803,
+    "positive_percentage": 12.796309439318666,
+    "threshold": 5.790317064161469
+  },
+  "top_features": [
+    {
+      "name": "region_Marseille",
+      "importance": 0.4179753890292757
+    },
+    {
+      "name": "region_Paris",
+      "importance": 0.08122835484458227
+    },
+    {
+      "name": "region_Lyon",
+      "importance": 0.07703364930359995
+    },
+    {
+      "name": "region_Lille",
+      "importance": 0.07390540615893498
+    },
+    {
+      "name": "region_Bordeaux",
+      "importance": 0.06640910211848473
+    },
+    {
+      "name": "region_Strasbourg",
+      "importance": 0.0648999494262445
+    },
+    {
+      "name": "region_Toulouse",
+      "importance": 0.06071917948918558
+    },
+    {
+      "name": "region_Nice",
+      "importance": 0.03935322307014366
+    },
+    {
+      "name": "region_Rennes",
+      "importance": 0.03914928925665572
+    },
+    {
+      "name": "region_Nantes",
+      "importance": 0.030312637954833823
+    }
+  ],
+  "deployment_info": {
+    "model_path": "../models/cos_clean_classifier.pkl",
+    "deployment_date": "2026-01-30",
+    "expected_accuracy": 0.9470073338064822,
+    "expected_recall": 0.955637707948244
+  }
+}

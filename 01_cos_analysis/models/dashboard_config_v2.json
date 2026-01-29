@@ -1,0 +1,45 @@
+{
+  "model_info": {
+    "name": "COS Risk Classifier v2.0",
+    "path": "../models/cos_final_classifier.pkl",
+    "version": "2.0.0",
+    "type": "classification"
+  },
+  "performance_thresholds": {
+    "high_risk": 0.7,
+    "medium_risk": 0.4,
+    "low_risk": 0.0
+  },
+  "dashboard_widgets": [
+    {
+      "id": "risk_map",
+      "name": "Carte des Risques",
+      "type": "map",
+      "data_field": "risk_predictions",
+      "refresh_rate": "daily"
+    },
+    {
+      "id": "risk_trend",
+      "name": "\u00c9volution des Risques",
+      "type": "line_chart",
+      "data_field": "historical_predictions",
+      "refresh_rate": "weekly"
+    },
+    {
+      "id": "top_factors",
+      "name": "Facteurs de Risque Principaux",
+      "type": "bar_chart",
+      "data_field": "feature_importance",
+      "refresh_rate": "monthly"
+    }
+  ],
+  "alert_config": {
+    "email_recipients": [
+      "regional_managers@kfc.com",
+      "operations@kfc.com"
+    ],
+    "slack_channel": "#cos-risk-alerts",
+    "high_risk_threshold": 0.7,
+    "medium_risk_threshold": 0.4
+  }
+}

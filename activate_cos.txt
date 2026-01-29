@@ -6,17 +6,15 @@ python -m venv venv
 
 
 
-Chemin app :    "../data/raw/transactions_final_20260124_1112.csv"
 
 
-# Vérifier que tout est prêt
-cd C:\Data\portfolio_kfc_data
-python (src) data_generation.py  # Regénérer données
-streamlit run app.py  # Tester dashboard
+Code d'acces
+            admin / admin123    → Accès complet
+            manager / manager123 → Gestion
+            viewer / viewer123  → Consultation
+            
 
-
-
-
+python -m streamlit run app_with_auth_sql.py
 
 
 		Commit sur GitHub
@@ -59,3 +57,5 @@ git push origin main
 1️⃣ Arborescence complète du projet
 
 Depuis portfolio_kfc_data : "tree /F"
+
+python -m pip install imbalanced-learn

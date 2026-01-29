@@ -1,0 +1,86 @@
+
+======================================================================
+📋 RAPPORT FINAL - SYSTÈME DE DÉTECTION DES RISQUES COS
+======================================================================
+
+📅 Date: 2026-01-30 00:15:21
+🏆 Modèle: Random Forest Classifier (version nettoyée)
+📁 Fichier: ../models/cos_clean_classifier.pkl
+🎯 Objectif: Identifier les restaurants à risque de problèmes COS
+
+📊 PERFORMANCE RÉALISTE
+────────────────────────────────────────
+• F1-Score sur test: 0.822
+• Taux de détection: 95.6%
+• Précision des alertes: 72.1%
+• AUC-ROC: 0.995
+
+🎯 INTERPRÉTATION BUSINESS
+────────────────────────────────────────
+Ce système permet de:
+
+1. DÉTECTION PRÉVENTIVE
+   • Identifier 95.6% des restaurants 
+     qui auront effectivement un problème COS
+   • Alerter les managers 24-48h à l'avance
+
+2. OPTIMISATION OPÉRATIONNELLE
+   • Cibler les audits et formations sur les restaurants à risque
+   • Optimiser les stocks et commandes de matières premières
+   • Réduire le gaspillage et améliorer la rentabilité
+
+3. SUIVI DES PERFORMANCES
+   • Monitorer l'évolution des risques par région
+   • Évaluer l'impact des actions correctives
+   • Identifier les tendances saisonnières
+
+🔍 FACTEURS DE RISQUE IDENTIFIÉS
+────────────────────────────────────────
+L'analyse montre que les risques COS sont principalement influencés par:
+
+• 📍 RÉGION GÉOGRAPHIQUE (90%+ de l'importance)
+   Certaines zones présentent des risques systématiquement plus élevés
+   • Marseille: risque très élevé
+   • Paris, Lyon, Lille: risque modéré
+   • Autres régions: risque faible
+
+• ⚠️  ANOMALIES OPÉRATIONNELLES
+   Les restaurants avec des anomalies récurrentes sont plus à risque
+
+• ⭐ QUALITÉ DE SERVICE (QSP)
+   Les scores QSP bas sont des indicateurs précurseurs
+
+🚀 RECOMMANDATIONS D'UTILISATION
+────────────────────────────────────────
+1. FRÉQUENCE D'ANALYSE
+   • Exécution quotidienne sur les données de la veille
+   • Revue hebdomadaire par les managers régionaux
+   • Rapport mensuel pour la direction
+
+2. PROCESSUS D'ALERTE
+   • Niveau 1 (risque élevé): Contact immédiat du manager
+   • Niveau 2 (risque modéré): Notification dans le dashboard
+   • Niveau 3 (risque faible): Surveillance passive
+
+3. ACTIONS CORRECTIVES
+   • Audit opérationnel ciblé sur Marseille
+   • Formation renforcée dans les zones à risque
+   • Ajustement des procédures spécifiques par région
+
+📊 STATISTIQUES
+────────────────────────────────────────
+• Données d'entraînement: 14,090 échantillons
+• Restaurants à risque: 1,803
+• Taux de risque moyen: 12.8%
+• Seuil d'alerte: > 5.79% de gap
+
+✅ PROCHAINES ÉTAPES
+────────────────────────────────────────
+1. Intégration dans le dashboard opérationnel
+2. Formation des utilisateurs finaux
+3. Mise en place du processus d'alerte
+4. Surveillance des performances en production
+
+======================================================================
+🎯 SYSTÈME PRÊT POUR LE DÉPLOIEMENT EN PRODUCTION
+======================================================================

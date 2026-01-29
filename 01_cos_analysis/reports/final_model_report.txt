@@ -1,0 +1,21 @@
+============================================================
+📋 RAPPORT DU MODÈLE FINAL - PRÉDICTION COS
+============================================================
+
+📅 Date: 2026-01-29 14:06:36
+🏆 Modèle sélectionné: Ridge Regression
+
+📊 PERFORMANCE:
+----------------------------------------
+• R² Moyen: 0.312
+• RMSE Moyen: 1.158%
+• MAE Moyen: 0.913%
+• Stabilité (std R²): 0.258
+
+🎯 INTERPRÉTATION:
+----------------------------------------
+• Performance acceptable avec limitations
+• À combiner avec une expertise métier
+
+💾 Fichier modèle: ../models/best_cos_model_final.pkl
+📁 Dataset utilisé: ml_dataset_OPTIMIZED.csv

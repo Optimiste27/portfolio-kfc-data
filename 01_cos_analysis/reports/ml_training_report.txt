@@ -1,0 +1,33 @@
+============================================================
+📋 RAPPORT ML - PRÉDICTION ÉCARTS COS
+============================================================
+
+📅 Date: 2026-01-29 12:27:54
+📊 Dataset: 14260 échantillons, 70 features
+
+🏆 MEILLEUR MODÈLE: Linear Regression
+   • RMSE: 0.000%
+   • MAE: 0.000%
+   • R²: 1.000
+
+📈 COMPARAISON DES MODÈLES:
+           Modèle    RMSE Test     MAE Test  R² Test
+Linear Regression 4.583664e-15 3.623329e-15 1.000000
+    Random Forest 9.514497e-04 1.238997e-04 1.000000
+ Ridge Regression 2.154959e-03 1.676869e-03 0.999999
+Gradient Boosting 2.685707e-03 1.875072e-03 0.999998
+          XGBoost 5.893907e-03 2.886599e-03 0.999989
+         LightGBM 6.436813e-03 4.320017e-03 0.999987
+ Lasso Regression 1.048431e-01 7.724605e-02 0.996648
+
+💡 RECOMMANDATIONS:
+✅ Le modèle a une excellente précision et peut être utilisé pour:
+   • Prédire les écarts COS futurs avec confiance
+   • Identifier les risques d'anomalies
+   • Optimiser les coûts opérationnels
+
+🚀 PROCHAINES ÉTAPES:
+1. Intégrer le modèle au dashboard Streamlit
+2. Créer une API de prédiction
+3. Mettre en place un monitoring des prédictions
+4. Re-entraîner périodiquement avec nouvelles données

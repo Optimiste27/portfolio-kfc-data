@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="cos_kfc.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5186"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="audit_logs" custom_title="0" dock_id="2" table="4,10:mainaudit_logs"/><dock_state state="000000ff00000000fd0000000100000002000004280000030efc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000000004280000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011b00ffffff0000025f0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">-- Voir les 5 premiers restaurants
+SELECT * FROM restaurants LIMIT 5;
+
+-- Statistiques par restaurant
+SELECT 
+    r.restaurant_name,
+    COUNT(t.transaction_id) as transactions,
+    ROUND(SUM(t.revenue), 2) as total_revenue,
+    ROUND(AVG(t.gap_percentage), 2) as avg_gap
+FROM transactions t
+JOIN restaurants r ON t.restaurant_id = r.restaurant_id
+GROUP BY r.restaurant_id
+ORDER BY total_revenue DESC;
+
+-- Top produits par revenue
+SELECT 
+    p.product_family_name,
+    p.category,
+    COUNT(*) as sales_count,
+    ROUND(SUM(t.revenue), 2) as total_revenue,
+    ROUND(AVG(t.gap_percentage), 2) as avg_gap
+FROM transactions t
+JOIN product_families p ON t.product_family_id = p.product_family_id
+GROUP BY p.product_family_id
+ORDER BY total_revenue DESC;
+
+-- Anomalies opérationnelles
+SELECT * FROM transactions 
+WHERE operational_anomaly = 1 
+ORDER BY gap_percentage DESC 
+LIMIT 10;</sql><current_tab id="0"/></tab_sql></sqlb_project>
